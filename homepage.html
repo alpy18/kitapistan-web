@@ -1,0 +1,434 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitapistan</title>
+  <style>
+    /* Temel Stil */
+    .navbar {
+      background-color: #F8CCA4; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Baglantilar */
+    .navbar a {
+      float: left; /* Baglantilari yatayda duzenle */
+      display: block; /* Blok ogeler olarak goruntule */
+      color: white; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Baglantilarin iç boslugu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Baglanti Hover Efekti */
+    .navbar a:hover {
+      background-color: #ddd; /* Hover sirasinda arka plan rengi */
+      color: black; /* Hover sirasinda metin rengi */
+    }
+
+    /* Seçili Baglanti Stili */
+    .navbar a.active {
+      background-color: #4CAF50; /* Seçili baglantinin arka plan rengi */
+      color: white; /* Seçili baglantinin metin rengi */
+    }
+
+    /* Arama Çubugu Container Stili */
+    .navbar .search-container {
+      float: left; /* Container'i saga tasi */
+      margin: 20px 250px 0 280px;
+      height: 50px;
+      padding: 0 15px 0 20px
+
+    }
+
+    /* Arama Çubugu Stili */
+    .navbar input[type=text] {
+      padding: 10px; /* Iç bosluk */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakligi */
+    }
+
+    /* Arama Çubugu Buton Stili */
+    .navbar button {
+      padding: 10px 16px; /* Iç bosluk */
+      background-color: #ddd; /* Arka plan rengi */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakligi */
+      cursor: pointer; /* Isaretçi turu */
+    }
+
+    /* Arama Çubugu Buton Hover Efekti */
+    .navbar button:hover {
+      background: #ccc; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Ikinci Navbar */
+    .short-navbar {
+      background-color: #F3E3D6; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Baglantilar */
+    .short-navbar a {
+      float: left; /* Baglantilari yatayda duzenle */
+      display: block; /* Blok ogeler olarak goruntule */
+      color: black; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Baglantilarin iç boslugu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Baglanti Hover Efekti */
+    .short-navbar a:hover {
+     color: #A30000; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Seçili Baglanti Stili */
+    .short-navbar a.active {
+  /* Seçili baglantinin arka plan rengi */
+      color: A30000; /* Seçili baglantinin metin rengi */
+    }
+
+    /* Kutular Container Stili */
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    /* Kutu Stili */
+    .box {
+      width: 200px;
+      height: 300px;
+      margin: 10px;
+      text-align: center;
+
+      cursor: pointer; /* Isaretçi turunu degistir (istege bagli) */
+    }
+
+    .images {
+      float: left;
+      width: 120px;
+      height: 100px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+<!-- Birinci Navbar -->
+<div class="navbar">
+  <div class="images">
+    <img src="images/kitapistan.png" width="250px">
+  </div>
+  
+
+  <div class="search-container">
+    <input type="text" placeholder="Kitap veya yazar ara">
+    <button type="submit">Ara</button>
+  </div>
+  <div class="images">
+     
+    <figure>
+    <a href="hesabim.html">
+    <img src="images/hesap.png" width="30px">
+    <figcaption><font color="black">Hesabim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+  <div class="images">
+    
+    <figure>
+    <a href="sepetim.html">
+    <img src="images/sepet.png" width="30px">
+    <figcaption><font color="black">Sepetim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+
+
+  <div class="images">
+    
+    <figure>
+    <a href="favorilerim.html">
+    <img src="images/favoriler.png" width="30px">
+    <figcaption><font color="black">Favorilerim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+</div>
+
+<!-- Ikinci Navbar -->
+<div class="short-navbar">
+  <a href="homepage.html" class="active"><b>Tum Kitaplar<b></a>
+  <a href="cok_satanlar.html"><b>Çok Satanlar<b></a>
+  <a href="kategoriler.html"><b>Kategoriler<b></a>
+</div>
+
+<!-- Kutular Container -->
+<div class="box-container"></div>
+
+<script>
+  // Sayfa genisligine gore kutulari ekleyen JavaScript kodu
+  function addBoxes() {
+    var container = document.querySelector('.box-container');
+    container.innerHTML = '';
+
+    var boxCount = 221;
+    var covers = []
+    var titles = []
+    var descs = []
+    var auhors = []
+    var publishers = []
+    var categories = []
+    var pages = []
+    var prices = []
+    for (var i = 1; i <= boxCount; i++) {
+      var box = document.createElement('div');
+      box.className = 'box';  
+      box.innerText = i;
+      box.innerHTML = "<img src=" + String(getCover(i)) + " width=\"150px\" height=\"225px\"><p height=\"15px\"><b><font face=\"Comic Sans MS\">" + String(getName(i)) + "</font><b></p><p><b><font color=\"#B14141\" face=\"Comic Sans MS\">" + String(getPrice(i)) + " ₺<b></p>";
+
+      covers[i] = String(getCover(i))
+      titles[i] = String(getName(i))
+      descs[i] = String(getDesc(i))
+      auhors[i] = String(getAuthor(i))
+      publishers[i] = String(getPublisher(i))
+      categories[i] = String(getCategory(i))
+      pages[i] = String(getPage(i))
+      prices[i] = String(getPrice(i))
+      box.addEventListener('click', function() {
+        // Tiklanan kutuya ozel sayfaya yonlendir
+        createPage(covers[i], titles[i], descs[i], authors[i], publishers[i], categories[i], pages[i], prices[i]);
+      });
+      container.appendChild(box);
+    }
+  }
+
+  // Sayfa yuklendiginde ve boyut degistikçe kutulari ekleyin
+  window.addEventListener('load', addBoxes);
+  window.addEventListener('resize', addBoxes);
+
+  // Tiklanan kutuya ozel sayfa olustur
+  function createPage(cover, title, desc, author, publisher, category, page, price) {
+    var newPageContent = `
+      <style>
+    .navbar {
+      background-color: #F8CCA4; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Baglantilar */
+    .navbar a {
+      float: left; /* Baglantilari yatayda duzenle */
+      display: block; /* Blok ogeler olarak goruntule */
+      color: white; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Baglantilarin iç boslugu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Baglanti Hover Efekti */
+    .navbar a:hover {
+      background-color: #ddd; /* Hover sirasinda arka plan rengi */
+      color: black; /* Hover sirasinda metin rengi */
+    }
+
+    /* Seçili Baglanti Stili */
+    .navbar a.active {
+      background-color: #4CAF50; /* Seçili baglantinin arka plan rengi */
+      color: white; /* Seçili baglantinin metin rengi */
+    }
+
+    /* Arama Çubugu Container Stili */
+    .navbar .search-container {
+      float: left; /* Container'i saga tasi */
+      margin: 20px 250px 0 280px;
+      height: 50px;
+      padding: 0 15px 0 20px
+
+    }
+
+    /* Arama Çubugu Stili */
+    .navbar input[type=text] {
+      padding: 10px; /* Iç bosluk */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakligi */
+    }
+
+    /* Arama Çubugu Buton Stili */
+    .navbar button {
+      padding: 10px 16px; /* Iç bosluk */
+      background-color: #ddd; /* Arka plan rengi */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakligi */
+      cursor: pointer; /* Isaretçi turu */
+    }
+
+    /* Arama Çubugu Buton Hover Efekti */
+    .navbar button:hover {
+      background: #ccc; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Ikinci Navbar */
+    .short-navbar {
+      background-color: #F3E3D6; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Baglantilar */
+    .short-navbar a {
+      float: left; /* Baglantilari yatayda duzenle */
+      display: block; /* Blok ogeler olarak goruntule */
+      color: black; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Baglantilarin iç boslugu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Baglanti Hover Efekti */
+    .short-navbar a:hover {
+     color: #A30000; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Seçili Baglanti Stili */
+    .short-navbar a.active {
+  /* Seçili baglantinin arka plan rengi */
+      color: A30000; /* Seçili baglantinin metin rengi */
+    }
+    .images {
+      float: left;
+      width: 120px;
+      height: 100px;
+    }
+
+    /* Kutular Container Stili */
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    /* Kutu Stili */
+    .box {
+      width: 200px;
+      height: 300px;
+      margin: 10px;
+      text-align: center;
+
+      cursor: pointer; /* Isaretçi turunu degistir (istege bagli) */
+    }
+
+    .images {
+      float: left;
+    }
+
+  </style>
+
+</head>
+
+
+<!-- Birinci Navbar -->
+<div class="navbar">
+  <div class="images">
+    <img src="https://cdn.discordapp.com/attachments/1093427218924974132/1202356989385265182/kitapistan.png?ex=65cd2934&is=65bab434&hm=76138193f116801a4c77210cb7b8c3fa554d36a7f7887ab61eac7a2ce03bed64&" width="250px">
+  </div>
+  
+
+  <div class="search-container">
+    <input type="text" placeholder="Kitap veya yazar ara">
+    <button type="submit">Ara</button>
+  </div>
+  <div class="images">
+     
+    <figure>
+    <a href="hesabim.html">
+    <img src="https://cdn.discordapp.com/attachments/1093427218924974132/1202356989091659866/hesap.png?ex=65cd2934&is=65bab434&hm=71be2d01d110613e113d2d96379ca658ad924f691c46a3062b4174cfdf7608ce&" width="30px">
+    <figcaption><font color="black">Hesabim<font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+  <div class="images">
+    
+    <figure>
+    <a href="sepetim.html">
+    <img src="https://cdn.discordapp.com/attachments/1093427218924974132/1202356989678592061/sepet.png?ex=65cd2935&is=65bab435&hm=522c13bad54bdc3957545626c8e3250b4ddd45a6c4fbb622a1ec3e922bdd1811&" width="30px">
+    <figcaption><font color="black">Sepetim<font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+
+
+  <div class="images">
+    
+    <figure>
+    <a href="favorilerim.html">
+    <img src="https://cdn.discordapp.com/attachments/1093427218924974132/1202356988768682074/favoriler.png?ex=65cd2934&is=65bab434&hm=082315e6acb0c14343d3c67d86726fdf2caf79b76fd2e05c75b34da203bc13c5&" width="30px">
+    <figcaption><font color="black">Favorilerim<font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+</div>
+
+<!-- Ikinci Navbar -->
+<div class="short-navbar">
+  <a href="homepage.html"><b>Tum Kitaplar<b></a>
+  <a href="cok_satanlar.html"><b>Cok Satanlar<b></a>
+  <a href="kategoriler.html"><b>Kategoriler<b></a>
+</div>
+      <div>
+        <div style="width:300px; height: 600px; float:left; padding: 10px 0 0 0">
+        <img src=" ${cover}">
+        </div>
+        <div style="float:left padding: 10px 0 0 0">
+        <font color="#642d3e" size="6" face="Comic Sans MS"> ${title}</font>
+        <p><font size="4" face="Comic Sans MS">Kitap Aciklamasi:</font></p>
+        <p> ${desc}</p> 
+        <br>
+        <font size="3" face="Comic Sans MS">Yazar Ismi:</font>  ${author}
+        <br><br>
+        <font size="3" face="Comic Sans MS">Yayinevi:</font>  ${publisher}
+        <br><br>
+        <font size="3" face="Comic Sans MS">Kategori:</font> ${category}
+        <br><br>
+        <font size="3" face="Comic Sans MS">Sayfa Sayisi:</font> ${page}
+        <br><br>
+        <button style="width: 400px; height: 70px; background-color: #a65f47; border-radius: 5px;"><strong> Favorilere ekle </strong></button>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button style="width: 400px; height: 70px; background-color: #91ba75; border-radius: 5px"> <font size="3" color="red" face="Comic Sans MS"> ${price} TL</font><strong>'ye Satin Al </strong></button>
+        </div>
+      </div>
+  
+    `
+
+    // Blob olustur
+    var blob = new Blob([newPageContent], { type: 'text/html' })
+    
+    // Blob URL'sini olustur
+    var blobURL = URL.createObjectURL(blob);
+
+    // Yeni pencerede aç
+    window.open(blobURL, '_blank')
+  }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
+

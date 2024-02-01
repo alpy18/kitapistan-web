@@ -1,0 +1,287 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitapistan</title>
+  <style>
+    /* Temel Stil */
+    .navbar {
+      background-color: #F8CCA4; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Bağlantilar */
+    .navbar a {
+      float: left; /* Bağlantilari yatayda düzenle */
+      display: block; /* Blok öğeler olarak görüntüle */
+      color: white; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Bağlantilarin iç boşluğu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Bağlanti Hover Efekti */
+    .navbar a:hover {
+      background-color: #ddd; /* Hover sirasinda arka plan rengi */
+      color: black; /* Hover sirasinda metin rengi */
+    }
+
+    /* Seçili Bağlanti Stili */
+    .navbar a.active {
+      background-color: #4CAF50; /* Seçili bağlantinin arka plan rengi */
+      color: white; /* Seçili bağlantinin metin rengi */
+    }
+
+    /* Arama Çubuğu Container Stili */
+    .navbar .search-container {
+      float: left; /* Container'i sağa taşi */
+      margin: 20px 250px 0 280px;
+      height: 50px;
+      padding: 0 15px 0 20px
+
+    }
+
+    /* Arama Çubuğu Stili */
+    .navbar input[type=text] {
+      padding: 10px; /* İç boşluk */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakliği */
+    }
+
+    /* Arama Çubuğu Buton Stili */
+    .navbar button {
+      padding: 10px 16px; /* İç boşluk */
+      background-color: #ddd; /* Arka plan rengi */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakliği */
+      cursor: pointer; /* İşaretçi türü */
+    }
+
+    /* Arama Çubuğu Buton Hover Efekti */
+    .navbar button:hover {
+      background: #ccc; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* İkinci Navbar */
+    .short-navbar {
+      background-color: #F3E3D6; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Bağlantilar */
+    .short-navbar a {
+      float: left; /* Bağlantilari yatayda düzenle */
+      display: block; /* Blok öğeler olarak görüntüle */
+      color: black; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Bağlantilarin iç boşluğu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Bağlanti Hover Efekti */
+    .short-navbar a:hover {
+     color: #A30000; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Seçili Bağlanti Stili */
+    .short-navbar a.active {
+  /* Seçili bağlantinin arka plan rengi */
+      color: A30000; /* Seçili bağlantinin metin rengi */
+    }
+    .images {
+      float: left;
+      width: 120px;
+      height: 100px;
+    }
+
+
+    /* Kutular Container Stili */
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    /* Kutu Stili */
+    .box {
+      width: 200px;
+      height: 300px;
+      margin: 10px;
+      text-align: center;
+
+      cursor: pointer; /* İşaretçi türünü değiştir (isteğe bağlı) */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        #container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .book-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .book-image {
+            width: 100px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .book-details {
+            flex-grow: 1;
+        }
+        .quantity-container {
+            display: flex;
+            align-items: center;
+        }
+        .quantity {
+            margin: 0 10px;
+        }
+        .price {
+            font-weight: bold;
+        }
+        #buy-button {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+  </style>
+
+</head>
+
+<body>
+<div class="navbar">
+  <div class="images">
+    <img src="images/kitapistan.png" width="250px">
+  </div>
+  
+
+  <div class="search-container">
+    <input type="text" placeholder="Kitap veya yazar ara">
+    <button type="submit">Ara</button>
+  </div>
+  <div class="images">
+     
+    <figure>
+    <a href="hesabim.html">
+    <img src="images/hesap.png" width="30px">
+    <figcaption><font color="black">Hesabim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+  <div class="images">
+    
+    <figure>
+    <a href="sepetim.html">
+    <img src="images/sepet.png"width="30px">
+    <figcaption><font color="red">Sepetim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+
+
+  <div class="images">
+    
+    <figure>
+    <a href="favorilerim.html">
+    <img src="images/favoriler.png" width="30px">
+    <figcaption><font color="black">Favorilerim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+</div>
+
+<!-- İkinci Navbar -->
+<div class="short-navbar">
+  <a href="homepage.html"><b>Tüm Kitaplar<b></a>
+  <a href="cok_satanlar.html"><b>Çok Satanlar<b></a>
+  <a href="kategoriler.html"><b>Kategoriler<b></a>
+</div>
+
+    <div id="container">
+        <div class="book-item">
+            <div class="book-image">
+                <!-- cesur Kitabı Görseli -->
+                <img src="https://img.kitapyurdu.com/v1/getImage/fn:11643404/wh:true/wi:220" alt="Cesur Yeni Dünya" width="100px" height="150px">
+            </div>
+            <div class="book-details">
+                <!-- cesur Kitabı İsmi -->
+                <h2>Cesur Yeni Dünya</h2>
+                <!-- cesur Kitabı Fiyatı -->
+                <p class="price">Fiyat: <font color="#A30000">84,80 TL</font></p>
+            </div>
+            <div class="quantity-container">
+                <button class="quantity" onclick="decreaseQuantity('quantity-cesur')">-</button>
+                <span id="quantity-cesur">1</span>
+                <button class="quantity" onclick="increaseQuantity('quantity-cesur')">+</button>
+            </div>
+        </div>
+        <div class="book-item">
+            <div class="book-image">
+                <!-- veronika Kitabı Görseli -->
+                <img src="https://img.kitapyurdu.com/v1/getImage/fn:11481517/wh:true/wi:220" alt="Veronika Ölmek İstiyor" width="100px" height="150px">
+            </div>
+            <div class="book-details">
+                <!-- veronika Kitabı İsmi -->
+                <h2>Veronika Ölmek İstiyor</h2>
+                <!-- veronika Kitabı Fiyatı -->
+                <p class="price">Fiyat: <font color="#A30000">81,34 TL</font></p>
+            </div>
+            <div class="quantity-container">
+                <button class="quantity" onclick="decreaseQuantity('quantity-veronika')">-</button>
+                <span id="quantity-veronika">1</span>
+                <button class="quantity" onclick="increaseQuantity('quantity-veronika')">+</button>
+            </div>
+        </div>
+        <div id="buy-button-container">
+            <!-- Satın Al Butonu -->
+            <a href="#" id="buy-button">Satın Al</a>
+        </div>
+    </div>
+
+    <script>
+        function increaseQuantity(elementId) {
+            var quantityElement = document.getElementById(elementId);
+            var currentQuantity = parseInt(quantityElement.innerText);
+            quantityElement.innerText = currentQuantity + 1;
+        }
+
+        function decreaseQuantity(elementId) {
+            var quantityElement = document.getElementById(elementId);
+            var currentQuantity = parseInt(quantityElement.innerText);
+            if (currentQuantity > 1) {
+                quantityElement.innerText = currentQuantity - 1;
+            }
+        }
+    </script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
+

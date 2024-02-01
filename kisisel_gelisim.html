@@ -1,0 +1,233 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitapistan</title>
+  <style>
+    .navbar {
+      background-color: #F8CCA4; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Bağlantilar */
+    .navbar a {
+      float: left; /* Bağlantilari yatayda düzenle */
+      display: block; /* Blok öğeler olarak görüntüle */
+      color: white; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Bağlantilarin iç boşluğu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Bağlanti Hover Efekti */
+    .navbar a:hover {
+      background-color: #ddd; /* Hover sirasinda arka plan rengi */
+      color: black; /* Hover sirasinda metin rengi */
+    }
+
+    /* Seçili Bağlanti Stili */
+    .navbar a.active {
+      background-color: #4CAF50; /* Seçili bağlantinin arka plan rengi */
+      color: white; /* Seçili bağlantinin metin rengi */
+    }
+
+    /* Arama Çubuğu Container Stili */
+    .navbar .search-container {
+      float: left; /* Container'i sağa taşi */
+      margin: 20px 250px 0 280px;
+      height: 50px;
+      padding: 0 15px 0 20px
+
+    }
+
+    /* Arama Çubuğu Stili */
+    .navbar input[type=text] {
+      padding: 10px; /* İç boşluk */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakliği */
+    }
+
+    /* Arama Çubuğu Buton Stili */
+    .navbar button {
+      padding: 10px 16px; /* İç boşluk */
+      background-color: #ddd; /* Arka plan rengi */
+      border: none; /* Kenarlik yok */
+      border-radius: 5px; /* Kenar yuvarlakliği */
+      cursor: pointer; /* İşaretçi türü */
+    }
+
+    /* Arama Çubuğu Buton Hover Efekti */
+    .navbar button:hover {
+      background: #ccc; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* İkinci Navbar */
+    .short-navbar {
+      background-color: #F3E3D6; /* Arka plan rengi */
+      overflow: hidden;
+    }
+
+    /* Bağlantilar */
+    .short-navbar a {
+      float: left; /* Bağlantilari yatayda düzenle */
+      display: block; /* Blok öğeler olarak görüntüle */
+      color: black; /* Metin rengi */
+      text-align: center; /* Metni ortala */
+      padding: 14px 16px; /* Bağlantilarin iç boşluğu */
+      text-decoration: none; /* Altçizgiyi kaldir */
+    }
+
+    /* Bağlanti Hover Efekti */
+    .short-navbar a:hover {
+     color: #A30000; /* Hover sirasinda arka plan rengi */
+    }
+
+    /* Seçili Bağlanti Stili */
+    .short-navbar a.active {
+  /* Seçili bağlantinin arka plan rengi */
+      color: A30000; /* Seçili bağlantinin metin rengi */
+    }
+    .images {
+      float: left;
+      width: 120px;
+      height: 100px;
+    }
+    /* Kutular Container Stili */
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    /* Kutu Stili */
+    .box {
+      width: 200px;
+      height: 300px;
+      margin: 10px;
+      text-align: center;
+
+      cursor: pointer; /* İşaretçi türünü değiştir (isteğe bağlı) */
+    }
+
+    .images {
+      float: left;
+    }
+
+  </style>
+
+</head>
+
+<body>
+<div class="navbar">
+  <div class="images">
+    <img src="images/kitapistan.png" width="250px">
+  </div>
+  
+
+  <div class="search-container">
+    <input type="text" placeholder="Kitap veya yazar ara">
+    <button type="submit">Ara</button>
+  </div>
+  <div class="images">
+     
+    <figure>
+    <a href="hesabim.html">
+    <img src="images/hesap.png" width="30px">
+    <figcaption><font color="black">Hesabim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+  <div class="images">
+    
+    <figure>
+    <a href="sepetim.html">
+    <img src="images/sepet.png" width="30px">
+    <figcaption><font color="black">Sepetim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+
+
+
+  <div class="images">
+    
+    <figure>
+    <a href="favorilerim.html">
+    <img src="images/favoriler.png" width="30px">
+    <figcaption><font color="black">Favorilerim</font></figcaption>
+    </a>
+    </figure>
+    
+  </div>
+</div>
+<!-- İkinci Navbar -->
+<div class="short-navbar">
+  <a href="homepage.html"><b>Tüm Kitaplar<b></a>
+  <a href="cok_satanlar.html"><b>Çok Satanlar<b></a>
+  <a href="kategoriler.html" class="active"><b>Kategoriler<b></a>
+</div>
+
+<div style="padding: 0 0 0 70px">
+    <h1 style>Kişisel Gelişim Kitapları</h1>
+</div>
+
+<!-- Kutular Container -->
+<div class="box-container"></div>
+
+<script>
+  // Sayfa genişliğine göre kutuları ekleyen JavaScript kodu
+  function addBoxes() {
+    var container = document.querySelector('.box-container');
+    container.innerHTML = '';
+
+    var boxCount = 167;
+    for (var i = 150; i <= boxCount; i++) {
+      var box = document.createElement('div');
+      box.className = 'box';  
+      box.innerText = i;
+      box.innerHTML = "<img src=" + String(getCover(i)) + " width=\"150px\" height=\"225px\"><p height=\"15px\"><b><font face=\"Comic Sans MS\">" + String(getName(i)) + "</font><b></p><p><b><font color=\"#B14141\" face=\"Comic Sans MS\">" + String(getPrice(i)) + " ₺<b></p>";
+
+      box.addEventListener('click', function() {
+        // Tıklanan kutuya özel sayfaya yönlendir
+        createPage(this.innerText);
+      });
+      container.appendChild(box);
+    }
+  }
+
+  // Sayfa yüklendiğinde ve boyut değiştikçe kutuları ekleyin
+  window.addEventListener('load', addBoxes);
+  window.addEventListener('resize', addBoxes);
+
+  // Tıklanan kutuya özel sayfa oluştur
+  function createPage(boxNumber) {
+    var newPageContent = `
+      <div>
+        <div class="content">
+          Kutu Numarasi: <strong>${boxNumber}</strong>
+        </div>
+      </div>
+    `
+
+    // Blob oluştur
+    var blob = new Blob([newPageContent], { type: 'text/html' })
+    
+    // Blob URL'sini oluştur
+    var blobURL = URL.createObjectURL(blob);
+
+    // Yeni pencerede aç
+    window.open(blobURL, '_blank')
+  }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
+
